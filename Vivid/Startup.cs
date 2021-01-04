@@ -35,6 +35,7 @@ namespace Vivid
             services.AddScoped<IApplicationRepository<Slider>, SliderRepository>();
             services.AddScoped<IApplicationRepository<Profile>, ProfileRepository>();
             services.AddScoped<IApplicationRepository<Category>, CategoryRepository>();
+            services.AddScoped<IApplicationRepository<Project>, ProjectRepository>();
         }
 
         

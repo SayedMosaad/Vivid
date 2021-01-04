@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -28,13 +29,13 @@ namespace Vivid.Areas.Admin.Models.Repositories
 
         public Category Find(int id)
         {
-            var category = db.Categories.FirstOrDefault(m => m.ID == id);
+            var category = db.Categories.Include(m=>m.Projects).FirstOrDefault(m => m.ID == id);
             return category;
         }
 
         public IList<Category> List()
         {
-            return db.Categories.ToList();
+            return db.Categories.Include(m=>m.Projects).ToList();
         }
 
         public void Update(int id, Category entity)

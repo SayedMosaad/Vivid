@@ -1,0 +1,74 @@
+﻿@model Vivid.Areas.Admin.Models.Project
+
+@{
+    ViewData["Title"] = "Project Details";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="card mt-2">
+    <div class="card-header">
+        <h3>@Model.Name</h3>
+    </div>
+    <div class="card-body">
+        <input type="hidden" asp-for="@Model.CoverPhoto" />
+        <input type="hidden" asp-for="@Model.ConceptPhoto" />
+        <input type="hidden" asp-for="@Model.PlanningPhoto" />
+        <input type="hidden" asp-for="@Model.RealizationPhoto" />
+        <div class="row">
+            <table class="table table-striped">
+                <tr class="d-flex">
+                    <td class="col-md-2 col-sm-6">Project Name</td>
+                    <td class="col-md-10 col-sm-6">@Model.Name</td>
+                </tr>
+                <tr class="d-flex">
+                    <td class="col-md-2 col-sm-6">Location</td>
+                    <td class="col-md-10 col-sm-6">@Model.Location</td>
+                </tr>
+                <tr class="d-flex">
+                    <td class="col-md-2 col-sm-6">Area</td>
+                    <td class="col-md-10 col-sm-6">@Model.Area</td>
+                </tr>
+                <tr class="d-flex">
+                    <td class="col-md-2 col-sm-6">Project Date</td>
+                    <td class="col-md-10 col-sm-6">@Model.Date.ToShortDateString()</td>
+                </tr>
+                <tr class="d-flex">
+                    <td class="col-md-2 col-sm-6">Photographer</td>
+                    <td class="col-md-10 col-sm-6">@Model.Photographer</td>
+                </tr>
+                <tr class="d-flex">
+                    <td class="col-sm-6 col-md-2">Project Description</td>
+                    <td class="col-md-10 col-sm-6">@Model.Description</td>
+                </tr>
+            </table>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-sm-6 col-md-12 col-lg-12">
+                <img class="rounded img-thumbnail" src="~/images/project/@Model.CoverPhoto" style="width:100%; height:400px" />
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-sm-6 col-md-6"><strong>Concepts: </strong><br /> @Model.Concepts</div>
+            <div class="col-sm-6 col-md-6">
+                <img class="rounded img-thumbnail" src="~/images/project/@Model.ConceptPhoto" style="width:100%; height:400px"/>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-sm-6 col-md-6"><strong>Planning: </strong><br />@Model.Planning</div>
+            <div class="col-sm-6 col-md-6">
+                <img class="rounded img-thumbnail" src="~/images/project/@Model.PlanningPhoto" style="width:100%; height:400px"/>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-sm-6 col-md-6"><strong>Realization: </strong><br />@Model.Realizatiion</div>
+            <div class="col-sm-6 col-md-6">
+                <img class="rounded img-thumbnail" src="~/images/project/@Model.RealizationPhoto" style="width:100%; height:400px" />
+            </div>
+        </div>
+    </div>
+</div>
