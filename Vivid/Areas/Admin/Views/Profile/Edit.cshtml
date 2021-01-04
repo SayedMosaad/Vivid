@@ -1,0 +1,126 @@
+﻿@model Vivid.Areas.Admin.ViewModels.EditProfileViewModel
+
+@{
+    ViewData["Title"] = "Edit Profile";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card mt-2">
+    <div class="card-header">
+        Edit Profile
+    </div>
+    <div class="card-body">
+        <form asp-action="Edit" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input type="hidden" asp-for="Id" />
+                <label asp-for="AboutUs" class="control-label"></label>
+                <textarea asp-for="AboutUs" class="form-control" cols="4" rows="5"></textarea>
+                <span asp-validation-for="AboutUs" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="hidden" asp-for="image1Url" />
+                <label asp-for="File1" class="control-label"></label>
+                <input type="file" asp-for="File1" class="form-control" />
+                <span asp-validation-for="File1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="hidden" asp-for="image2Url" />
+                <label asp-for="File2" class="control-label"></label>
+                <input type="file" asp-for="File2" class="form-control" />
+                <span asp-validation-for="File2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="hidden" asp-for="image3Url" />
+                <label asp-for="File3" class="control-label"></label>
+                <input type="file" asp-for="File3" class="form-control" />
+                <span asp-validation-for="File3" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Vission" class="control-label"></label>
+                <textarea asp-for="Vission" class="form-control" cols="4" rows="5"></textarea>
+                <span asp-validation-for="Vission" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Mission" class="control-label"></label>
+                <textarea asp-for="Mission" class="form-control" cols="4" rows="5"></textarea>
+                <span asp-validation-for="Mission" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Plan1" class="control-label"></label>
+                <textarea asp-for="Plan1" class="form-control" cols="4" rows="5"></textarea>
+                <span asp-validation-for="Plan1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Plan2" class="control-label"></label>
+                <textarea asp-for="Plan2" class="form-control" cols="4" rows="5"></textarea>
+                <span asp-validation-for="Plan2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address1" class="control-label"></label>
+                <input asp-for="Address1" class="form-control" />
+                <span asp-validation-for="Address1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address2" class="control-label"></label>
+                <input asp-for="Address2" class="form-control" />
+                <span asp-validation-for="Address2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address3" class="control-label"></label>
+                <input asp-for="Address3" class="form-control" />
+                <span asp-validation-for="Address3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Phone" class="control-label"></label>
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FindUs" class="control-label"></label>
+                <input asp-for="FindUs" class="form-control" />
+                <span asp-validation-for="FindUs" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UniqueProject" class="control-label"></label>
+                <input asp-for="UniqueProject" class="form-control" />
+                <span asp-validation-for="UniqueProject" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Parts" class="control-label"></label>
+                <input asp-for="Parts" class="form-control" />
+                <span asp-validation-for="Parts" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Achivements" class="control-label"></label>
+                <input asp-for="Achivements" class="form-control" />
+                <span asp-validation-for="Achivements" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Countries" class="control-label"></label>
+                <input asp-for="Countries" class="form-control" />
+                <span asp-validation-for="Countries" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProjectInProgress" class="control-label"></label>
+                <input asp-for="ProjectInProgress" class="form-control" />
+                <span asp-validation-for="ProjectInProgress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Update" class="btn btn-success" />
+                <a asp-controller="profile" asp-action="index" class="btn btn-danger">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts
+{
+    <partial name="_Validation" />
+
+}
