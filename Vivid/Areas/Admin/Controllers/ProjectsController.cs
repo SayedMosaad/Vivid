@@ -17,20 +17,23 @@ namespace Vivid.Areas.Admin.Controllers
     {
         private readonly IApplicationRepository<Project> repository;
         private readonly IApplicationRepository<Category> categoryRepository;
+        private readonly IPhotoRepository photoRepository;
         private readonly IHostingEnvironment hosting;
 
         public ProjectsController(IApplicationRepository<Project> repository,
                                     IApplicationRepository<Category> CategoryRepository,
+                                    IPhotoRepository photoRepository,
                                     IHostingEnvironment hosting)
         {
             this.repository = repository;
             categoryRepository = CategoryRepository;
+            this.photoRepository = photoRepository;
             this.hosting = hosting;
         }
         // GET: ProjectsController
         public ActionResult Index()
         {
-            
+
             return View(repository.List());
         }
 
@@ -38,7 +41,7 @@ namespace Vivid.Areas.Admin.Controllers
         public ActionResult Details(int id)
         {
             var project = repository.Find(id);
-            if(project==null)
+            if (project == null)
             {
                 return NotFound();
             }
@@ -69,7 +72,7 @@ namespace Vivid.Areas.Admin.Controllers
                 string realizationFile = UploadFile(model.RealizationFile);
                 if (ModelState.IsValid)
                 {
-                    if(model.CategoryId==-1)
+                    if (model.CategoryId == -1)
                     {
                         ModelState.AddModelError("", "Please select the Category");
                         return View(GetAllCategories());
@@ -107,30 +110,30 @@ namespace Vivid.Areas.Admin.Controllers
         public ActionResult Edit(int id)
         {
             var project = repository.Find(id);
-            if(project==null)
+            if (project == null)
             {
                 return NotFound();
             }
             var categoryId = project.CategoryId;
             var model = new EditProjectViewModel
             {
-                Id=project.ID,
-                Name=project.Name,
-                Description=project.Description,
-                Location=project.Location,
-                Photographer=project.Photographer,
-                Area=project.Area,
-                Date=project.Date,
-                Team=project.Team,
-                CoverImageUrl=project.CoverPhoto,
-                ConceptImageUrl=project.ConceptPhoto,
-                Concepts=project.Concepts,
-                Planning=project.Planning,
-                PlanningImageUrl=project.PlanningPhoto,
-                Realizatiion=project.Realizatiion,
-                RealiztionImageUrl=project.RealizationPhoto,
-                CategoryId= categoryId,
-                Categories=FillCategory()
+                Id = project.ID,
+                Name = project.Name,
+                Description = project.Description,
+                Location = project.Location,
+                Photographer = project.Photographer,
+                Area = project.Area,
+                Date = project.Date,
+                Team = project.Team,
+                CoverImageUrl = project.CoverPhoto,
+                ConceptImageUrl = project.ConceptPhoto,
+                Concepts = project.Concepts,
+                Planning = project.Planning,
+                PlanningImageUrl = project.PlanningPhoto,
+                Realizatiion = project.Realizatiion,
+                RealiztionImageUrl = project.RealizationPhoto,
+                CategoryId = categoryId,
+                Categories = FillCategory()
             };
             return View(model);
         }
@@ -146,17 +149,17 @@ namespace Vivid.Areas.Admin.Controllers
                 string ConceptFile = UploadFile(model.ConceptFile);
                 string planningFile = UploadFile(model.PlanningFile);
                 string realizationFile = UploadFile(model.RealizationFile);
-                if(ModelState.IsValid)
+                if (ModelState.IsValid)
                 {
                     var category = categoryRepository.Find(model.CategoryId);
-                    if(model.CategoryId==0)
+                    if (model.CategoryId == 0)
                     {
                         ModelState.AddModelError("", "Please select the Category");
                         return View(GetAllCategories());
                     }
                     var project = new Project
                     {
-                        
+
                         Name = model.Name,
                         Description = model.Description,
                         Location = model.Location,
@@ -164,14 +167,14 @@ namespace Vivid.Areas.Admin.Controllers
                         Area = model.Area,
                         Date = model.Date,
                         Team = model.Team,
-                        CoverPhoto=Coverfile,
+                        CoverPhoto = Coverfile,
                         ConceptPhoto = ConceptFile,
                         Concepts = model.Concepts,
                         Planning = model.Planning,
                         PlanningPhoto = planningFile,
                         Realizatiion = model.Realizatiion,
                         RealizationPhoto = realizationFile,
-                        Category =category
+                        Category = category
                     };
                     repository.Update(model.Id, project);
                     model.Categories = FillCategory();
@@ -186,25 +189,32 @@ namespace Vivid.Areas.Admin.Controllers
             }
         }
 
-        // GET: ProjectsController/Delete/5
+        [HttpGet]
         public ActionResult Delete(int id)
         {
-            return View();
+            var project = repository.Find(id);
+            if (project == null)
+            {
+                return NotFound();
+            }
+            return View(project);
         }
 
-        // POST: ProjectsController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        [ActionName("Delete")]
+        public ActionResult ConfirmDelete(int id)
         {
-            try
+            var images = photoRepository.GetImages(id);
+            foreach(var item in images)
             {
-                return RedirectToAction(nameof(Index));
+                photoRepository.Delete(item.ID);
             }
-            catch
-            {
-                return View();
-            }
+            repository.Delete(id);
+            
+            
+
+            return RedirectToAction("index");
         }
 
         List<Category> FillCategory()
@@ -227,7 +237,7 @@ namespace Vivid.Areas.Admin.Controllers
 
         string UploadFile(IFormFile File)
         {
-            if(File!=null)
+            if (File != null)
             {
                 string Uploads = Path.Combine(hosting.WebRootPath, "images/project");
                 string FileName = File.FileName;
@@ -240,14 +250,14 @@ namespace Vivid.Areas.Admin.Controllers
 
         string UploadFile(IFormFile File, string ImageUrl)
         {
-            if(File!=null)
+            if (File != null)
             {
                 string Uploads = Path.Combine(hosting.WebRootPath, "images/project");
                 string FileName = File.FileName;
                 string NewPath = Path.Combine(Uploads, FileName);
                 string OldFileName = ImageUrl;
                 string OldPath = Path.Combine(Uploads, OldFileName);
-                if(NewPath!=OldPath)
+                if (NewPath != OldPath)
                 {
                     System.IO.File.Delete(OldPath);
                     File.CopyTo(new FileStream(NewPath, FileMode.Create));

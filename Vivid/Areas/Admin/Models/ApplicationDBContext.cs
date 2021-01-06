@@ -18,6 +18,10 @@ namespace Vivid.Areas.Admin.Models
         public DbSet<Profile> Profile { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Project> Projects { get; set; }
+        public DbSet<Photo> Photos { get; set; }
+        public DbSet<Career> Careers { get; set; }
+        public DbSet<Team> Team { get; set; }
+        public DbSet<Award> Awards { get; set; }
 
     }
 }

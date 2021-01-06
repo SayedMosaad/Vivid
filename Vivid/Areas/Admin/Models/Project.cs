@@ -24,5 +24,6 @@ namespace Vivid.Areas.Admin.Models
         public string RealizationPhoto { get; set; }
         public int CategoryId { get; set; }
         public virtual Category Category { get; set; }
+        public ICollection<Photo> Photos { get; set; }
     }
 }

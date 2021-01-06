@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Vivid.Areas.Admin.Models.Career>
+
+@{
+    ViewData["Title"] = "Career List";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="mt-2 link">
+    <a asp-controller="careers" asp-action="index">Careers </a> /
+</div>
+
+<div class="card mt-2">
+    <div class="card-header">
+        <a asp-controller="Careers" asp-action="create" class="btn btn-outline-info">Add New Job</a>
+    </div>
+    <div class="card-body">
+        <table class="table table-striped">
+            <thead>
+                <tr class="d-flex">
+                    <th class="col-2">Job</th>
+                    <th class="col-2">Location</th>
+                    <th class="col-3">Job Specification</th>
+                    <th class="col-4">Job responsibilities</th>
+                    <th class="col-1"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr class="d-flex">
+                    <td class="col-2">@item.Title</td>
+                    <td class="col-2">@item.Location</td>
+                    <td class="col-3">@item.Specification</td>
+                    <td class="col-4">@item.Responsibilities</td>
+                    <td class="col-1">
+                        <a asp-area="Admin" asp-controller="Careers" asp-action="Edit" asp-route-id="@item.ID" class="fas fa-edit text-primary"></a>
+                        <a asp-area="Admin" asp-controller="Careers" asp-action="Details" asp-route-id="@item.ID" class="fas fa-info text-info"></a>
+                        <a asp-area="Admin" asp-controller="Careers" asp-action="Delete" asp-route-id="@item.ID" class="fas fa-trash text-danger"></a>
+                    </td>
+                </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>

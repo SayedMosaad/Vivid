@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Vivid.Areas.Admin.Models.Award>
+
+@{
+    ViewData["Title"] = "Awards List";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="mt-2 link">
+    <a asp-controller="awards" asp-action="index">Awards </a> /
+</div>
+
+
+<a asp-controller="awards" asp-action="Create" class="btn btn-outline-info mt-2">Add New Award</a>
+<div class="card mt-2">
+    <div class="card-header">
+        <h3>Awards List</h3>
+    </div>
+    <div class="card-body">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Image)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @item.Name
+                            </td>
+                            <td>
+                                <img src="~/images/awards/@item.Image" class="img-thumbnail rounded"  style="width:150px; height:150px;"/>
+                            </td>
+                            <td>
+                                <a asp-controller="awards" asp-action="Edit" asp-route-id="@item.ID" class="fas fa-edit"></a>
+                                <a asp-controller="awards" asp-action="delete" asp-route-id="@item.ID" class="fas fa-trash text-danger"></a>
+                            </td>
+                        </tr>
+                    }
+
+            </tbody>
+        </table>
+    </div>
+</div>
