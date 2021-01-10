@@ -10,6 +10,8 @@
     <Folder Include="Controllers\" />
     <Folder Include="wwwroot\images\about\" />
     <Folder Include="wwwroot\images\awards\" />
+    <Folder Include="wwwroot\images\media\" />
+    <Folder Include="wwwroot\images\blogs\" />
     <Folder Include="wwwroot\images\team\" />
     <Folder Include="wwwroot\images\project\" />
     <Folder Include="wwwroot\images\profile\" />
@@ -17,6 +19,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="cloudscribe.Pagination.Models" Version="1.1.0" />
+    <PackageReference Include="cloudscribe.Web.Pagination" Version="3.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.1">

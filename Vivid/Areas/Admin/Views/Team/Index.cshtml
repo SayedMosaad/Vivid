@@ -5,10 +5,8 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<div class="mt-2 link">
-    <a asp-controller="Team" asp-action="index">Team </a> /
-</div>
-<a asp-action="Create" class="btn btn-outline-info mt-2">Add New Member</a>
+
+<a asp-action="Create" class="btn btn-outline-info">Add New Member</a>
 <div class="row mt-2">
     @foreach (var item in Model)
     {

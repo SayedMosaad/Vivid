@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Vivid.Areas.Admin.Models
 {
-    public class ApplicationDBContext:IdentityDbContext
+    public class ApplicationDBContext:IdentityDbContext<ApplicationUser>
     {
         public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options): base(options)
         {
@@ -22,6 +22,10 @@ namespace Vivid.Areas.Admin.Models
         public DbSet<Career> Careers { get; set; }
         public DbSet<Team> Team { get; set; }
         public DbSet<Award> Awards { get; set; }
+        public DbSet<MediaCategory> MediaCategories { get; set; }
+        public DbSet<Media> Medias { get; set; }
+        public DbSet<Blog> Blogs { get; set; }
+        public DbSet<Request> Requests { get; set; }
 
     }
 }

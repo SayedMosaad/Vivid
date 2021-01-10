@@ -41,6 +41,10 @@ namespace Vivid
             services.AddScoped<IApplicationRepository<Career>, CareerRepository>();
             services.AddScoped<IApplicationRepository<Team>, TeamRepository>();
             services.AddScoped<IApplicationRepository<Award>, AwardsRepository>();
+            services.AddScoped<IApplicationRepository<MediaCategory>, MediaCategoryRepository>();
+            services.AddScoped<IApplicationRepository<Media>, MediaRepository>();
+            services.AddScoped<IApplicationRepository<Blog>, BlogRepository>();
+            services.AddScoped<IApplicationRepository<Request>, RequestRepository>();
         }
 
         

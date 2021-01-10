@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Vivid.Areas.Admin.Models.Media>
+
+@{
+    ViewData["Title"] = "Media List";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="card">
+    <div class="card-header">
+        <a asp-controller="Media" asp-action="Create" class="btn btn-outline-info">Add New Media</a>
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Image)
+                    </th>
+                    <th>
+                        Category
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @item.Name
+                        </td>
+                        <td>
+                            <img src="~/images/media/@item.Image" class="img-thumbnail rounded" style="width:100px;height:100px;" />
+                        </td>
+                        <td>
+                            @item.MediaCategory.Name
+                        </td>
+                        <td>
+                            <a asp-controller="media" asp-action="Edit" asp-route-id="@item.ID" class="fas fa-edit"></a>
+                            <a asp-controller="media" asp-action="Delete" asp-route-id="@item.ID" class="fas fa-trash text-danger"></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

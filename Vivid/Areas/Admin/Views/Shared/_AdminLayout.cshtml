@@ -1,18 +1,422 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity;
+@inject SignInManager<ApplicationUser> signInManager
+<!DOCTYPE html>
+<html lang="en">
 
-<html>
 <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+    <title>@ViewData["Title"]</title>
+
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
     <link href="~/lib/Style.css" rel="stylesheet" />
     <link href="~/lib/bootstrap/css/bootstrap.css" rel="stylesheet" />
     <link href="~/lib/fontawesome-iconpicker/css/all.css" rel="stylesheet" />
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="~/css/sb-admin-2.css" rel="stylesheet" />
+
 </head>
-<body>
-    <div class="container">
-        @RenderBody()
+
+<body id="page-top">
+    @{
+        string controller = @ViewContext.RouteData.Values["Controller"].ToString();
+        string action = @ViewContext.RouteData.Values["Action"].ToString();
+    }
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" asp-controller="Home" asp-action="index">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-laugh-wink"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3">Vivid <sup></sup></div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            @if (controller == "Home")
+            {
+                <li class="nav-item active">
+                    <a class="nav-link" asp-controller="Home" asp-action="index">
+                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+            }
+            else
+            {
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Home" asp-action="index">
+                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+            }
+
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Links
+            </div>
+            @if (controller == "Profile")
+            {
+                <li class="nav-item active">
+                    <a class="nav-link" asp-controller="Profile" asp-action="index">
+                        <i class="fas fa-address-card"></i>
+                        <span>Profile</span>
+                    </a>
+                </li>
+            }
+            else
+            {
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Profile" asp-action="index">
+                        <i class="fas fa-address-card"></i>
+                        <span>Profile</span>
+                    </a>
+                </li>
+            }
+
+            @if (controller == "Slider")
+            {
+                <li class="nav-item active">
+                    <a class="nav-link" asp-controller="Slider" asp-action="index">
+                        <i class="fas fa-images"></i>
+                        <span>Slider</span>
+                    </a>
+                </li>
+            }
+            else
+            {
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Slider" asp-action="index">
+                        <i class="fas fa-images"></i>
+                        <span>Slider</span>
+                    </a>
+                </li>
+            }
+
+
+            @if (controller == "Awards")
+            {
+                <li class="nav-item active">
+                    <a class="nav-link" asp-controller="awards" asp-action="index">
+                        <i class="fas fa-gift"></i>
+                        <span>Awards</span>
+                    </a>
+                </li>
+            }
+            else
+            {
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="awards" asp-action="index">
+                        <i class="fas fa-gift"></i>
+                        <span>Awards</span>
+                    </a>
+                </li>
+            }
+
+            @if (controller == "Blogs")
+            {
+                <li class="nav-item active">
+                    <a class="nav-link" asp-controller="blogs" asp-action="index">
+                        <i class="fas fa-blog"></i>
+                        <span>Blogs</span>
+                    </a>
+                </li>
+            }
+            else
+            {
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="blogs" asp-action="index">
+                        <i class="fas fa-blog"></i>
+                        <span>Blogs</span>
+                    </a>
+                </li>
+            }
+
+            @if (controller == "Categories")
+            {
+                <li class="nav-item active">
+                    <a class="nav-link" asp-controller="Categories" asp-action="index">
+                        <i class="fas fa-list-alt"></i>
+                        <span>Project Categories</span>
+                    </a>
+                </li>
+            }
+            else
+            {
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Categories" asp-action="index">
+                        <i class="fas fa-list-alt"></i>
+                        <span>Project Categories</span>
+                    </a>
+                </li>
+            }
+
+            @if (controller == "Projects")
+            {
+                <li class="nav-item active">
+                    <a class="nav-link" asp-controller="Projects" asp-action="index">
+                        <i class="fas fa-grip-horizontal"></i>
+                        <span>Projects</span>
+                    </a>
+                </li>
+            }
+            else
+            {
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Projects" asp-action="index">
+                        <i class="fas fa-grip-horizontal"></i>
+                        <span>Projects</span>
+                    </a>
+                </li>
+            }
+
+            @if (controller == "Images")
+            {
+                <li class="nav-item active">
+                    <a class="nav-link" asp-controller="images" asp-action="index">
+                        <i class="fas fa-images"></i>
+                        <span>Project Images</span>
+                    </a>
+                </li>
+            }
+            else
+            {
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="images" asp-action="index">
+                        <i class="fas fa-images"></i>
+                        <span>Project Images</span>
+                    </a>
+                </li>
+            }
+
+            @if (controller == "MediaCategories")
+            {
+                <li class="nav-item active">
+                    <a class="nav-link" asp-controller="MediaCategories" asp-action="index">
+                        <i class="fas fa-server"></i>
+                        <span>Media Types</span>
+                    </a>
+                </li>
+            }
+            else
+            {
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="MediaCategories" asp-action="index">
+                        <i class="fas fa-server"></i>
+                        <span>Media Types</span>
+                    </a>
+                </li>
+            }
+
+            @if (controller == "Media")
+            {
+                <li class="nav-item active">
+                    <a class="nav-link" asp-controller="Media" asp-action="index">
+                        <i class="fas fa-play-circle"></i>
+                        <span>Media</span>
+                    </a>
+                </li>
+            }
+            else
+            {
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Media" asp-action="index">
+                        <i class="fas fa-play-circle"></i>
+                        <span>Media</span>
+                    </a>
+                </li>
+            }
+
+            @if (controller == "Careers")
+            {
+                <li class="nav-item active">
+                    <a class="nav-link" asp-controller="Careers" asp-action="index">
+                        <i class="fas fa-user-tie"></i>
+                        <span>Career</span>
+                    </a>
+                </li>
+            }
+            else
+            {
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Careers" asp-action="index">
+                        <i class="fas fa-user-tie"></i>
+                        <span>Career</span>
+                    </a>
+                </li>
+            }
+
+            @if (controller == "Team")
+            {
+                <li class="nav-item active">
+                    <a class="nav-link" asp-controller="Team" asp-action="index">
+                        <i class="fas fa-users"></i>
+                        <span>Team</span>
+                    </a>
+                </li>
+            }
+            else
+            {
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Team" asp-action="index">
+                        <i class="fas fa-users"></i>
+                        <span>Team</span>
+                    </a>
+                </li>
+            }
+
+            @if (controller == "Requests")
+            {
+                <li class="nav-item active">
+                    <a class="nav-link" asp-controller="Requests" asp-action="index">
+                        <i class="fas fa-envelope"></i>
+                        <span>Requests</span>
+                    </a>
+                </li>
+            }
+            else
+            {
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Requests" asp-action="index">
+                        <i class="fas fa-users"></i>
+                        <span>Requests</span>
+                    </a>
+                </li>
+            }
+
+            <hr class="sidebar-divider d-none d-md-block">
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                    <i class="fas fa-edit"></i>
+                    <span>Settings</span>
+                </a>
+                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar" style="">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Login Screens:</h6>
+                        <a class="collapse-item" asp-controller="Account" asp-action="Register">Add New User</a>
+                        <a class="collapse-item" asp-controller="Account" asp-action="ChangePassword">Change Password</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+        </ul>
+        <!-- End of Sidebar -->
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-dark border topbar mb-2 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <div class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+
+
+
+                        <a asp-controller="@controller" asp-action="index" class="text-capitalize text-white">@controller </a> /
+                    </div>
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                        @if (signInManager.IsSignedIn(User))
+                        {
+                            <!-- Nav Item - User Information -->
+                            <li class="nav-item dropdown no-arrow">
+                                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">@User.Identity.Name</span>
+                                    <img class="img-profile rounded-circle" src="~/img/undraw_profile.svg">
+                                </a>
+                                <!-- Dropdown - User Information -->
+                                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                     aria-labelledby="userDropdown">
+
+
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    <form method="post" asp-controller="Account" asp-action="Logout" style="display:inline-block">
+                                        <input type="submit" value="Logout" class="nav-item" />
+                                    </form>
+
+                                </div>
+                            </li>
+                        }
+
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    @RenderBody()
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Devenza 2020</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
     </div>
-    @RenderSection("Scripts",false)
+    <!-- End of Page Wrapper -->
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="~/js/sb-admin-2.min.js"></script>
+
+    @RenderSection("Scripts", false)
 
 </body>
+
 </html>

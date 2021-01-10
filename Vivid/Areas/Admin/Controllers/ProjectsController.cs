@@ -152,7 +152,7 @@ namespace Vivid.Areas.Admin.Controllers
                 if (ModelState.IsValid)
                 {
                     var category = categoryRepository.Find(model.CategoryId);
-                    if (model.CategoryId == 0)
+                    if (model.CategoryId == -1)
                     {
                         ModelState.AddModelError("", "Please select the Category");
                         return View(GetAllCategories());
