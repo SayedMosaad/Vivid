@@ -1,0 +1,50 @@
+﻿@model Vivid.ViewModels.IndexViewModel
+@{
+    ViewData["Title"] = "Blog Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="news" id="white-sec">
+    <div class="news__head" data-aos="fade-right" data-aos-delay="2500">
+        <div class="wrapper container">
+            <h2 class="news__h2 show">
+                @Model.Blog.Title
+            </h2>
+            <div class="news__date">
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="news__body">
+        <div class="news__row">
+            <div class="wrapper container">
+                <div class="text news__text">
+                    <div class="text__column col-md-6 float-left" >
+                        <p>
+                            <img loading="lazy" class="alignnone wp-image-1950 size-full"
+                                 src="/images/blogs/@Model.Blog.Image">
+                        </p>
+                    </div>
+                    <div class="text__column col-md-6 float-right" data-aos="fade-up" data-aos-delay="400">
+                        <p style="text-align: left;">
+                            @Model.Blog.Body
+                        </p>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="news__row">
+            <div class="wrapper wrapper_large">
+                <div class="news__imgs news__imgs_type-1">
+                    <div class="news__card" data-bg-src="https://yodezeen.com/wp-content/uploads/2018/06/45__811_Solar_Isle_ft_Lauderdale_photo_by_SupremeScene-2880x1920.jpg"
+                         data-bg-size="cover" data-bg-pos="center"
+                         style="background: url(&quot;https://yodezeen.com/wp-content/uploads/2018/06/45__811_Solar_Isle_ft_Lauderdale_photo_by_SupremeScene-2880x1920.jpg&quot;) center center / cover no-repeat; ">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

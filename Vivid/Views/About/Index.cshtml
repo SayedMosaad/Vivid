@@ -1,0 +1,342 @@
+﻿@model Vivid.ViewModels.IndexViewModel
+@{
+    ViewData["Title"] = "About";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@for (int i = 0; i < Model.Profiles.Count; i++)
+{
+    if (i == 0)
+    {
+        <!-- Abour sec -->
+
+        <section class="about spad" id="about-sec">
+            <div class="backgrnd_word">
+                <span class="line" data-aos="fade-up" data-aos-delay="2200"> ABOUT</span>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="section-title">
+                        <h2 data-aos="fade-up" data-aos-duration=".5s" data-aos-delay="2200">
+                            Company  Philosophy
+                        </h2>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-lg-6">
+                        <div class="about__text">
+                            <div class="about__para__text" data-aos="fade-up" data-aos-duration="1s" data-aos-delay="2400">
+                                <p>
+                                    @Model.Profiles[i].Vission
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="about__text">
+                            <div class="about__para__text" data-aos="fade-up" data-aos-duration="1.5s" data-aos-delay="2600">
+                                <p>
+                                    @Model.Profiles[i].Mission
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- Abour sec -->
+        <!--Founder Gallary-->
+        <section class="about_hero hero" id="project-sec">
+            <div class="hero__slider owl-carousel">
+                <div class="hero__items set-bg" data-setbg="/images/about/@Model.Profiles[i].Image1"></div>
+                <div class="hero__items set-bg" data-setbg="/images/about/@Model.Profiles[i].Image2"></div>
+                <div class="hero__items set-bg" data-setbg="/images/about/@Model.Profiles[i].Image3"></div>
+            </div>
+            <div class="slide-num" id="snh-1"></div>
+            <div class="slider__progress"><span></span></div>
+        </section>
+        <!--Founder Gallary-->
+
+
+        <!--Strengths section-->
+        <section class="strengths" id="career-sec">
+            <div class="container">
+                <div class="row">
+                    <div class="our-strengths">
+                        <h2 data-aos="fade-right" data-aos-duration=".5s"> Our strengths</h2>
+                        <p data-aos="fade-up" data-aos-delay="100">Combining elements that have never been combined - that is our forte and passion.</p>
+                    </div>
+                    <div class="our-strengths-list">
+                        <div class="card we-best__card" data-aos="fade-up">
+                            <div class="card__bg card__bg_active">4</div>
+                            <div class="card__head">
+                                <div class="card__icon">
+                                    <img src="https://yodezeen.com/wp-content/uploads/2017/11/home.svg" alt="" class="card__img">
+                                </div>
+
+                                <h6 class="card__title card__title_desk">
+                                    <span>@Model.Profiles[i].FindUs</span><br>
+                                    for find us easily
+                                </h6>
+                            </div>
+
+                            <div class="card__text">
+                                <h6 class="card__title_mob">
+                                    <p>
+                                        Our offices are practical and functional, even as we integrate clever design solutions.
+                                        Just come to us, and you can replace the starkness and boredom of your old interiors with style.
+                                    </p>
+                                </h6>
+                            </div>
+                        </div>
+                        <div class="card we-best__card" data-aos="fade-up" data-aos-delay="200">
+                            <div class="card__bg card__bg_active">@Model.Profiles[i].Parts</div>
+                            <div class="card__head">
+                                <div class="card__icon">
+                                    <img src="https://yodezeen.com/wp-content/uploads/2017/11/people-1.svg" alt="" class="card__img">
+                                </div>
+
+                                <h6 class="card__title card__title_desk">
+                                    <span>@Model.Profiles[i].Parts</span><br>
+                                    Integral Parts of our Company
+                                </h6>
+                            </div>
+
+                            <div class="card__text">
+                                <h6 class="card__title_mob">
+                                    <p>
+                                        The secret is a smoothly working team of disparate people who are each endowed with some special talent.
+                                        Who come together like a symphony to create beautiful music.
+                                    </p>
+                                </h6>
+                            </div>
+                        </div>
+                        <div class="card we-best__card" data-aos="fade-up" data-aos-delay="400">
+                            <div class="card__bg card__bg_active">@Model.Profiles[i].UniqueProject</div>
+                            <div class="card__head">
+                                <div class="card__icon">
+                                    <img src="https://yodezeen.com/wp-content/uploads/2017/11/pencil-1.svg" alt="" class="card__img">
+                                </div>
+
+                                <h6 class="card__title card__title_desk">
+                                    <span>@Model.Profiles[i].UniqueProject</span><br>
+                                    Unique Projects Finished
+                                </h6>
+                            </div>
+
+                            <div class="card__text">
+                                <h6 class="card__title_mob">
+                                    <p>
+                                        We are constantly growing, learning, and improving and our partners are steadily increasing.
+                                        200 projects is a sizable number, but we always strive to be better, more relevant, more determined, and more successful than yesterday. We are not going to stop.
+                                    </p>
+                                </h6>
+                            </div>
+                        </div>
+
+                        <div class="card we-best__card" data-aos="fade-up" data-aos-delay="200">
+                            <div class="card__bg card__bg_active">@Model.Profiles[i].Achivements</div>
+                            <div class="card__head">
+                                <div class="card__icon">
+                                    <img src="https://yodezeen.com/wp-content/uploads/2017/11/star-1-1.svg" alt="" class="card__img">
+                                </div>
+
+                                <h6 class="card__title card__title_desk">
+                                    <span>@Model.Profiles[i].Achivements</span><br>
+                                    Achievements
+                                </h6>
+                            </div>
+
+                            <div class="card__text">
+                                <h6 class="card__title_mob">
+                                    <p>As a leading company, we have numerous awards and acknowledgements.</p>
+                                </h6>
+                            </div>
+                        </div>
+
+                        <div class="card we-best__card" data-aos="fade-up" data-aos-delay="400">
+                            <div class="card__bg card__bg_active">@Model.Profiles[i].Countries</div>
+                            <div class="card__head">
+                                <div class="card__icon">
+                                    <img src="https://yodezeen.com/wp-content/uploads/2018/10/country.svg" alt="" class="card__img">
+                                </div>
+
+                                <h6 class="card__title card__title_desk">
+                                    <span>@Model.Profiles[i].Countries</span><br>
+                                    Countries that We Operate In
+                                </h6>
+                            </div>
+
+                            <div class="card__text">
+                                <h6 class="card__title_mob">
+                                    <p>
+                                        We realize that being tied to one place and country is limiting, and an evolving developmental vision demands more. And development is the basis of everything.
+                                        This is why we never stand still, and build projects in multiple countries.
+                                    </p>
+                                </h6>
+                            </div>
+                        </div>
+                        <div class="card we-best__card" data-aos="fade-up" data-aos-delay="600">
+                            <div class="card__bg card__bg_active">@Model.Profiles[i].ProjectInProgress</div>
+                            <div class="card__head">
+                                <div class="card__icon">
+                                    <img src="https://yodezeen.com/wp-content/uploads/2017/11/graphic-design2.png" alt="" class="card__img">
+                                </div>
+
+                                <h6 class="card__title card__title_desk">
+                                    <span>@Model.Profiles[i].ProjectInProgress</span><br>
+                                    Projects in Progress
+                                </h6>
+                            </div>
+
+                            <div class="card__text">
+                                <h6 class="card__title_mob">
+                                    <p>
+                                        Vivda's approach integrates extensive experience across a wide spectrum of project types, producing evocative and conceptually clear architecture and interior designs.
+                                    </p>
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Strengths section End-->
+    }
+
+}
+
+@for (int i = 0; i < Model.Team.Count; i++)
+
+{
+    <section class="team spad" id="project-sec">
+        <div class="team_list_large">
+
+            @if (i <= 1)
+            {
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="team__cardblack">
+                            <h5 class="text_cardblack">Co-founders</h5>
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="team__item set-bg" data-setbg="/images/team/@Model.Team[i].Image">
+                            <div class="team__text">
+                                <div class="team__title">
+                                    <h5>@Model.Team[i].Name</h5>
+                                    <span>@Model.Team[i].Job</span>
+                                </div>
+                                <p>
+                                    @Model.Team[i].Bio
+                                </p>
+                                <div class="team__social">
+                                    <a href="@Model.Team[i].Facebook"><i class="fa fa-facebook"></i></a>
+                                    <a href="@Model.Team[i].Twitter"><i class="fa fa-twitter"></i></a>
+                                    <a href="@Model.Team[i].Instagram"><i class="fa fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="team__cardblack">
+                        <h5 class="text_cardblack">Architecture</h5>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="team__item set-bg" data-setbg="/images/team/@Model.Team[i].Image">
+                        <div class="team__text">
+                            <div class="team__title">
+                                <h5>@Model.Team[i].Name</h5>
+                                <span>@Model.Team[i].Job</span>
+                            </div>
+                            <p>
+                                @Model.Team[i].Bio
+                            </p>
+                            <div class="team__social">
+                                <a href="@Model.Team[i].Facebook"><i class="fa fa-facebook"></i></a>
+                                <a href="@Model.Team[i].Twitter"><i class="fa fa-twitter"></i></a>
+                                <a href="@Model.Team[i].Instagram"><i class="fa fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Team Section End -->
+}
+
+
+<!--Awards Section-->
+<section class="awards" id="career-sec">
+    <div class="backgrnd_word">
+        <span class="line" data-aos="fade-up">AWARD</span>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="our-awards">
+                <h2 data-aos="fade-right" data-aos-duration=".5s">Our awards</h2>
+                <p data-aos="fade-up" data-aos-delay="100">How can there be no awards, when such a creative team oversees the market?</p>
+            </div>
+        </div>
+        @for (int i = 0; i < Model.Awards.Count; i++)
+        {
+            <div href="#" class="card awards__card">
+                <div class="awards_list">
+                        <div class="card__column card__column_left">
+                            <h5 class="card__title">
+                                @Model.Awards[i].Name
+                            </h5>
+                            
+                        </div>
+                    <div class="scroll scroll_top"></div>
+
+                    <div class="card__separator"></div>
+
+                        <div class="card__column card__column_right">
+                            <img src="/images/awards/@Model.Awards[i].Image" alt="" class="card__img">
+                            <div class="card__text">
+                                @*Restaurant &amp; Bar Design awards*@
+                            </div>
+                        </div>
+                </div>
+            </div>
+        }
+
+
+    </div>
+</section>
+<!--Awards Section End-->
+<!-- Talk about your project sec -->
+<section class="about spad">
+    <div class="container">
+        <div class="row">
+            <div class="section-title" style="width: 80%;">
+                <h2 data-aos="fade-up" data-aos-duration=".5s" data-aos-delay="200">
+                    Let’s talk about your project!
+                </h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="about__text">
+                    <div class="about__para__text" data-aos="fade-up" data-aos-duration="1s" data-aos-delay="400">
+                        <p>We are ready to share with you our design vision and lead you into the exciting world of creativity.</p>
+                    </div>
+
+                    <a asp-controller="Contact" asp-action="index" class="primary-btn normal-btn" data-aos="flip-left" data-aos-delay="500">SEND REQUEST</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Talk about your project sec -->

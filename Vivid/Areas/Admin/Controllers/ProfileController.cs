@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -12,6 +13,7 @@ using Vivid.Areas.Admin.ViewModels;
 namespace Vivid.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize]
     public class ProfileController : Controller
     {
         private readonly IApplicationRepository<Profile> repository;

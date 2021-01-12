@@ -1,0 +1,176 @@
+﻿@model Vivid.ViewModels.IndexViewModel
+
+@{
+    ViewData["Title"] = "BlogDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var project = Model.Project;
+}
+
+<!-- Breadcrumb Section Begin -->
+<div class="breadcrumb-option spad set-bg" data-setbg="/img/breadcrumb-bg.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 ">
+                <div class="breadcrumb__text">
+                    <h2 data-aos="fade-right" data-aos-delay="2500">@project.Name</h2>
+                    <span data-aos="fade-up" data-aos-delay="2700">Jungle by YODEZEEN</span>
+                </div>
+
+                <div class="hero__label">
+                    Photographer: @project.Photographer
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumb Section End -->
+
+
+<section class="about spad" id="white-sec">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-7">
+                <div class="forproject section-title">
+                    <!-- <span data-aos="fade-right">who are we</span> -->
+                    <h2 data-aos="fade-up" data-aos-duration=".5s" data-aos-delay="200">
+                        @project.Description
+                    </h2>
+                </div>
+
+                <div class="about__text">
+                    <div class="text_forproject" data-aos="fade-right" data-aos-duration="1s" data-aos-delay="400">
+                        <p>The Par Bar concept is plotted on beauty through simplicity.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-5">
+                <div class="project__column">
+
+                    <div class="details about__details" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card details__card">
+                            <div class="card__icon"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
+                            <div class="card__content">
+                                <h4 class="card__title">Location:</h4>
+                                <div class="card__text">@project.Location</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="details about__details" data-aos="fade-up" data-aos-delay="400">
+                        <div class="card details__card">
+                            <div class="card__icon"><i class="fa fa-compress" aria-hidden="true"></i></div>
+                            <div class="card__content">
+                                <h4 class="card__title">Square meters:</h4>
+                                <div class="card__text">@project.Area m²</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="details about__details" data-aos="fade-up" data-aos-delay="600">
+                        <div class="card details__card">
+                            <div class="card__icon"><i class="fa fa-calendar" aria-hidden="true"></i></div>
+                            <div class="card__content">
+                                <h4 class="card__title">Date:</h4>
+                                <div class="card__text">@project.Date.ToShortDateString()</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="details about__details" data-aos="fade-up" data-aos-delay="800">
+                        <div class="card details__card">
+                            <div class="card__icon"><i class="fa fa-users" aria-hidden="true"></i></div>
+                            <div class="card__content">
+                                <h4 class="card__title">Team:</h4>
+                                <div class="card__text">
+                                    @project.Team
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<section class="theproject__details" id="white-sec">
+    <div class="wrapper wrapper_large">
+        <div class="project__inner">
+            <div class="project__row">
+                <div class="card card_type-1 project__card">
+                    <img class="card__img b-lazy b-loaded" src="/images/project/@project.CoverPhoto" height="800">
+                </div>
+            </div>
+
+            <!--Concept-->
+            <div class="project__row">
+                <div class="card card_type-2 project__card">
+                    <img class="card__img b-lazy b-loaded" src="/images/project/@project.ConceptPhoto">
+                    <div class="card__content">
+                        <h2 class="h2 card__h2 show" data-aos="fade-right" data-aos-delay="200">Concept</h2>
+                        <div class="text card__text" data-aos="fade-up" data-aos-delay="400">
+                            <p>
+                                @project.Concepts
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Planning & Zoning -->
+            <div class="project__row">
+                <div class="card card_type-2 project__card">
+                    <img class=" card__img b-lazy b-loaded" src="/images/project/@project.PlanningPhoto">
+                    <div class="card__content">
+                        <h2 class="h2 card__h2"> Planning & Zoning </h2>
+                        <div class="text card__text" data-aos="fade-up" data-aos-delay="400">
+                            <p></p>
+                            <p>
+                                @project.Planning
+                            </p>
+                            <p>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--Realization-->
+            <div class="project__row">
+                <div class="card card_type-2 project__card">
+                    <img class="card__img b-lazy b-loaded" src="/images/project/@project.RealizationPhoto">
+                    <div class="card__content">
+                        <h2 class="h2 card__h2 show">Realization</h2>
+                        <div class="text card__text" data-aos="fade-up" data-aos-delay="400">
+                            <p>
+                                @project.Realizatiion
+                            </p>
+                            <p>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project__row">
+
+                @foreach (var photo in Model.Project.Photos)
+                {
+                    <div class="card card_type-1 project__card col-md-6">
+
+                        <img class="card__img b-lazy b-loaded" src="/images/project/@photo.Image" style="width:100%; height:500px;">
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+</section>
+

@@ -1,0 +1,54 @@
+/*---------------------
+  Career
+-----------------------*/
+.career{
+	padding-top: 120px;
+	padding-bottom: 165px;
+}
+.career__text{
+	padding-top: 50px;
+}
+
+.career .section-title {
+	margin-bottom: 12px;
+	width: 100%;
+}
+
+.career__para__text{
+	margin-bottom: 60px;
+    width: 350px;
+}
+.career__list {
+    font-size: 0;
+    letter-spacing: 0;
+    margin-bottom: 9px;
+}
+.mycard {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    /* background-color: #fff; */
+    background-clip: border-box;
+    /* border: 1px solid rgba(0,0,0,.125); */
+    border-radius: .25rem;
+}
+.career .mycard{padding-bottom: 46px;}
+.career__column {
+    width: 229px;
+    display: inline-block;
+    vertical-align: top;
+}
+.career .card__head {
+    text-align: left;
+}
+
+.career .card__address {
+    letter-spacing: -1px;
+    font: 300 16px/26px 'Circe', Arial, Helvetica, sans-serif;
+    color: #828282;
+	margin: 0
+}

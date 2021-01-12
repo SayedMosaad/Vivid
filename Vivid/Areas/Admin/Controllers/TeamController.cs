@@ -9,10 +9,12 @@ using Vivid.Areas.Admin.Models;
 using Vivid.Areas.Admin.ViewModels;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Vivid.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize]
     public class TeamController : Controller
     {
         private readonly IApplicationRepository<Team> repository;

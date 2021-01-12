@@ -1,0 +1,249 @@
+﻿@model Vivid.ViewModels.RequestViewModel
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Staging Template">
+    <meta name="keywords" content="Staging, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Contact | VIVID</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Aldrich&display=swap" rel="stylesheet"> -->
+    <!-- Css Styles -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">  <!--Aos Library-->
+    <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader">
+            <div>
+                <span class="bigletter letters-1">V</span>
+                <span class="letters letters-1">V</span>
+            </div>
+            <div>
+                <span class="bigletter  letters-2">I</span>
+                <span class="letters letters-2">I</span>
+            </div>
+            <div>
+                <span class="bigletter  letters-3">V</span>
+                <span class="letters letters-3">V</span>
+            </div>
+            <div>
+                <span class="bigletter  letters-4">I</span>
+                <span class="letters letters-4">I</span>
+            </div>
+            <div>
+                <span class="bigletter  letters-5">D</span>
+                <span class="letters letters-5">D</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Offcanvas Menu Begin -->
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="offcanvas__logo">
+            <a href="#">Vivda</a>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+    </div>
+
+    <!-- Offcanvas Menu End -->
+    <!-- Header Section Begin -->
+    <header class="header" id="myHeader">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="header__logo">
+                        <div class="black-logo mt-2" id="black-logo">
+                            <a asp-controller="Home" asp-action="index">
+                                <img src="~/img/logo/last black.png" alt="logo-vivda">
+                            </a>
+                        </div>
+
+                        <div class="white-logo hide" id="white-logo">
+                            <a asp-controller="Home" asp-action="index">
+                                <img src="~/img/logo/VIVID-white.png" alt="logo-vivda">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <nav class="header__menu mobile-menu">
+                        <!-- Nav Toggler Btn -->
+                        <a asp-controller="Home" asp-action="bigfooter">
+                            <div class="nav-toggler closenavtglr hide" id="littlebtn">
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </a>
+
+                        <ul id="header-contant">
+                            <div class="menuheader projects menu__projects">
+                                <button class="button-projects projects__button-projects">
+                                    <span class="button-projects__line"></span>
+                                    <span class="button-projects__line"></span>
+                                    <span class="button-projects__line"></span>
+                                </button>
+                                <div class="projects__dropdown">
+                                    <a asp-controller="projects" asp-action="index" class="projects__subitem">Commerical</a>
+                                    <a asp-controller="projects" asp-action="index" class="projects__subitem">residential</a>
+                                    <a asp-controller="projects" asp-action="index" class="projects__subitem">Architecture</a>
+                                </div>
+                            </div>
+
+                            <li class="menuheader"><a asp-controller="projects" asp-action="index">Projects</a></li>
+                            <li class="menuheader"><a asp-controller="About" asp-action="index">About</a></li>
+                            <li class="menuheader"><a asp-controller="Media" asp-action="index">Media</a></li>
+                            <li class="menuheader"><a asp-controller="Blogs" asp-action="index">Blog</a></li>
+                            <li class="menuheader"><a asp-controller="Career" asp-action="index">Careers</a></li>
+                            <li class="menuheader"><a asp-controller="Contact" asp-action="index">Contact</a></li>
+
+
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!-- <div class="canvas__open"> <i class="fa fa-bars"></i></div>  -->
+        </div>
+    </header>
+    <!-- Header Section End -->
+
+    <footer class="footer set-bg" id="footer-sec" style="background-color: #1a1a1a;">
+
+        <!-- Contact Section Begin -->
+        <section class="contact spad">
+            <div class="container contact_wrapper ">
+                <div class="row">
+                    <p class="text-white">
+                        Your Message has been sent successfuly, Thank you!
+                    </p>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-5">
+                        <p data-aos="fade-up" data-aos-delay="2400">
+                            We are ready to lead you into the exciting world of architecture and interior design.
+                        </p>
+                        <div class="">
+                            <a asp-controller="Contact" asp-action="index" class="primary-btn normal-btn" data-aos="flip-left" data-aos-delay="2400"
+                               style="color: #ffffff;">
+                                SEND ANOTHER REQUEST
+                            </a>
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Contact Section End -->
+        <!--bottom Footer Begin -->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="footer__about">
+                        <div class="footer__logo">
+                            <a href="#">Vivda</a>
+                        </div>
+                        <p>7176 Blue Spring Lane <br />Mansoura, Egypt</p>
+                        <ul>
+                            <li>Info@vivida-eg.com</li>
+                            <li>+84 123 456 789</li>
+                        </ul>
+                        <div class="footer__social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 offset-lg-1 col-md-3 col-sm-6" data-aos="fade-up" data-aos-delay="800">
+                    <div class="footer__widget">
+                        <h6>Company</h6>
+                        <ul>
+                            <li><a asp-controller="About" asp-action="index">About Us</a></li>
+
+                            <li><a asp-controller="Projects" asp-action="index">Our Works</a></li>
+                            <li><a asp-controller="Career" asp-action="index">Career</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 offset-lg-1 col-md-3 col-sm-6" data-aos="fade-up" data-aos-delay="950">
+                    <div class="footer__widget">
+                        <h6>Services</h6>
+                        <ul>
+                            <li><a href="#">Architecture</a></li>
+                            <li><a href="#">Interior Design</a></li>
+                            <li><a href="#">Exterior Design</a></li>
+                            <li><a href="#">Planning</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-lg-8 col-md-7">
+                        <div class="copyright__text">
+                            <p>
+                                Copyright ©
+                                <script>
+                                document.write(new Date().getFullYear()); </script>
+                                All rights reserved | This template is made with <i class="fa fa-heart-o"
+                                                                                    aria-hidden="true"></i> by <a href="#" target="_blank">Devenza</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--bottom Footer Section End -->
+
+    </footer>
+
+   
+    <!--Contact Form section-->
+    <!-- Js Plugins -->
+    <!-- Animate -->
+    <script src="/js/animate.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
+    <!--Aos Library-->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="/js/aos.js"></script>
+
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.slicknav.js"></script>
+    <script src="/js/owl.carousel.min.js"></script>
+    <script src="/js/slick.min.js"></script>
+    <script src="/js/main.js"></script>
+
+    <!-- Animate -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <script src="/js/animate.js"></script>
+
+    <!--Aos Library-->
+    <link href="https://unpkg.com/aos@2.3.0/dist/aos.css">
+    <script src="/js/aos.js"></script>
+
+</body>
+</html>
+

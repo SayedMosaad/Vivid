@@ -1,0 +1,92 @@
+﻿@model Vivid.ViewModels.IndexViewModel
+@{
+    ViewData["Title"] = "Careers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!-- Career Section Begin -->
+<section class="about spad" id="white-sec">
+    <div class="backgrnd_word">
+        <span class="line" data-aos="fade-up">CAREER</span>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="section-title" style="width: 80%;">
+                <h2 data-aos="fade-up" data-aos-duration=".5s" data-aos-delay="2200">
+                    Wanna work with us?
+                </h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="about__text">
+                    <div class="about__para__text" data-aos="fade-right" data-aos-duration="1s" data-aos-delay="2400">
+                        <p>
+                            Vivda is an award-winning, interdisciplinary architectural studio with cultural,
+                            residential and commercial projects built worldwide. We pride ourselves on being builders
+                            — creating architectural and
+                            creative solutions to help people realize their vision and make them a reality.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="about__text">
+                    <div class="about__para__text" data-aos="fade-up" data-aos-duration="1.5s" data-aos-delay="2600">
+                        <p>
+                            We strive for excellence in what we offer our customers and how we work together to achieve it.
+                            We are expanding our team — searching for designers, architects, the true madman in a scope.
+                            People, who are already doing VIVDA in every thought
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+            <div>
+                <p>Pleaase Send your Resume to "hr@vivid.com"</p>
+            </div>
+          @*  <a href="./about.html" class="primary-btn normal-btn" data-aos="flip-left" data-aos-delay="2500">SEND REQUEST</a>*@
+        </div>
+    </div>
+</section>
+<!-- Career Section End -->
+
+<section class="career career_for-career" id="white-sec">
+    <div class="container">
+        <div class="row">
+            <div class="career__list">
+                <div class="col-lg-12">
+                    
+                    @foreach (var item in Model.Careers)
+                    {
+                        <div class="career__column">
+                            <div class="mycard career__card">
+                                <div class="card__head">
+                                    <h4 class="card__vacancy"> @item.Title</h4>
+                                    <div class="card__address">@item.Location</div>
+                                </div>
+                                <div class="card__body">
+                                    <div class="text card__text">
+                                        <p>
+                                            <strong>Hiring specification:</strong><br>
+                                            <br>
+                                            @item.Specification
+                                            <strong>Areas of responsibility:</strong><br>
+                                            <br>
+                                            @item.Responsibilities
+                                        </p>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

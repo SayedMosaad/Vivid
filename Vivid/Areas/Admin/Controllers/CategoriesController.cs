@@ -7,10 +7,12 @@ using Microsoft.AspNetCore.Mvc;
 using Vivid.Areas.Admin.Models;
 using Vivid.Areas.Admin.ViewModels;
 using Vivid.Areas.Admin.Models.Repositories;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Vivid.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize]
     public class CategoriesController : Controller
     {
         private readonly IApplicationRepository<Category> repository;

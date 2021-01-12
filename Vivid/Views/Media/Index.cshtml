@@ -1,0 +1,74 @@
+﻿@model Vivid.ViewModels.IndexViewModel
+@{
+    ViewData["Title"] = "Media";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="media" id="white-sec">
+
+
+    <div class="media__head">
+        <div class="wrapper wrapper_large">
+            <h2 data-aos="fade-right" data-aos-delay="2100">Media</h2>
+            <div class="media__inner">
+                <div class="filters media__filters" id="filters">
+                    <button class="filters__button filters__button_active" data-filter="all" data-aos="fade-up-right" data-aos-delay="2200">
+                        All
+                    </button>
+                    @foreach (var item in Model.MediaCategories)
+                    {
+
+                        <button class="filters__button" data-filter="@item.ID" data-aos="fade-up-right" data-aos-delay="2300">
+                            @item.Name
+                        </button>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="media__body">
+        <div class="wrapper wrapper_large">
+            <div class="media__inner">
+
+                @foreach (var item in Model.Medias)
+                {
+                    <div href="#"
+                         target="_blank" class="card media__card" data-filter-card="@item.MediaCategory.ID">
+                        <div class="card__wrap">
+                            <img class="card__image" src="/images/media/@item.Image">
+                        </div>
+                    </div>
+
+                }
+
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- media  Section End -->
+<!-- Talk about your project sec -->
+<section class="about spad">
+    <div class="container">
+        <div class="row">
+            <div class="section-title" style="width: 80%;">
+                <h2 data-aos="fade-up" data-aos-duration=".5s" data-aos-delay="200">
+                    Let’s talk about your project!
+                </h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="about__text">
+                    <div class="about__para__text" data-aos="fade-up" data-aos-duration="1s" data-aos-delay="400">
+                        <p>We are ready to share with you our design vision and lead you into the exciting world of creativity.</p>
+                    </div>
+
+                    <a asp-controller="Contact" asp-action="index" class="primary-btn normal-btn" data-aos="flip-left" data-aos-delay="500">SEND REQUEST</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Talk about your project sec -->

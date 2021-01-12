@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using cloudscribe.Pagination.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Vivid.Areas.Admin.Models;
@@ -12,6 +13,7 @@ using Vivid.Areas.Admin.ViewModels;
 namespace Vivid.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize]
     public class RequestsController : Controller
     {
         private readonly IApplicationRepository<Request> repository;
