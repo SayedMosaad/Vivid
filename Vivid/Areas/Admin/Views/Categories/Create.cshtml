@@ -10,12 +10,17 @@
         Adding New Category
     </div>
     <div class="card-body">
-        <form asp-action="Create" method="post">
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="File" class="control-label"></label>
+                <input type="file" asp-for="File" class="form-control" />
+                <span asp-validation-for="File" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Add Category" class="btn btn-success" />

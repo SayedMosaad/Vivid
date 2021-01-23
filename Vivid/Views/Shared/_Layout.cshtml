@@ -1,4 +1,7 @@
-﻿
+﻿@{
+    string ctrname = @ViewContext.RouteData.Values["Controller"].ToString();
+
+}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,72 +58,145 @@
                 <span class="letters letters-5">D</span>
             </div>
 
-            <!-- <span class="letters letters-1">V</span>
-            <span class="letters letters-2">I</span>
-            <span class="letters letters-3">V</span>
-            <span class="letters letters-4">D</span>
-            <span class="letters letters-5">A</span> -->
+
         </div>
     </div>
 
     <!-- Header Section Begin -->
-    <header class="header" id="myHeader">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="header__logo">
-                        <div class="black-logo" id="black-logo">
-                            <a asp-controller="Home" asp-action="index">
-                                <img src="~/img/logo/last black.png" alt="logo-vivda">
-                            </a>
-                        </div>
+    @if (ctrname == "Home")
+    {
+        <header id="myHeader" class="header">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-3">
+                        @*<div class="header__logo" style="margin-top:auto;">
+                            <div class="black-logo" id="black-logo">
+                                <a asp-controller="Home" asp-action="index">
+                                    <img src="~/img/logo/last black.png" alt="logo-vivda">
+                                </a>
+                            </div>
 
-                        <div class="white-logo hide" id="white-logo">
-                            <a asp-controller="Home" asp-action="index">
-                                <img src="~/img/logo/VIVID-white.png" alt="logo-vivda">
-                            </a>
+                            <div class="white-logo hide" id="white-logo">
+                                <a asp-controller="Home" asp-action="index">
+                                    <img src="~/img/logo/VIVID-white.png" alt="logo-vivda">
+                                </a>
+                            </div>
+                        </div>*@
+                        <div class="header__logo">
+                            <div class="black-logo" id="black-logo">
+                                <a href="./index.html">
+                                    <img src="./img/logo/last black.png" alt="logo-vivda">
+                                </a>
+                            </div>
+
+                            <div class="white-logo hide" id="white-logo">
+                                <a href="./index.html">
+                                    <img src="./img/logo/VIVID-white.png" alt="logo-vivda">
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-9">
-                    <nav class="header__menu mobile-menu">
-                        <!-- Nav Toggler Btn -->
-                        <a asp-controller="Home" asp-action="bigfooter">
-                            <div class="nav-toggler closenavtglr hide" id="littlebtn">
-                                <span></span>
-                                <span></span>
-                            </div>
-                        </a>
-
-                        <ul id="header-contant">
-                            <div class="menuheader projects menu__projects">
-                                <button class="button-projects projects__button-projects">
-                                    <span class="button-projects__line"></span>
-                                    <span class="button-projects__line"></span>
-                                    <span class="button-projects__line"></span>
-                                </button>
-                                <div class="projects__dropdown">
-                                    <a asp-controller="projects" asp-action="index" class="projects__subitem">Commerical</a>
-                                    <a asp-controller="projects" asp-action="index" class="projects__subitem">residential</a>
-                                    <a asp-controller="projects" asp-action="index" class="projects__subitem">Architecture</a>
+                    <div class="col-lg-9">
+                        <nav class="header__menu mobile-menu">
+                            <!-- Nav Toggler Btn -->
+                            <a asp-controller="Home" asp-action="bigfooter">
+                                <div class="nav-toggler closenavtglr hide" id="littlebtn">
+                                    <span></span>
+                                    <span></span>
                                 </div>
+                            </a>
+
+                            <ul id="header-contant">
+                                <div class="menuheader projects menu__projects">
+                                    <button class="button-projects projects__button-projects">
+                                        <span class="button-projects__line"></span>
+                                        <span class="button-projects__line"></span>
+                                        <span class="button-projects__line"></span>
+                                    </button>
+                                    <div class="projects__dropdown">
+                                        <a asp-controller="projects" asp-action="index" class="projects__subitem">Commerical</a>
+                                        <a asp-controller="projects" asp-action="index" class="projects__subitem">residential</a>
+                                        <a asp-controller="projects" asp-action="index" class="projects__subitem">Architecture</a>
+                                    </div>
+                                </div>
+
+                                <li class="menuheader"><a asp-controller="projects" asp-action="index">Projects</a></li>
+                                <li class="menuheader"><a asp-controller="About" asp-action="index">About</a></li>
+                                <li class="menuheader"><a asp-controller="Media" asp-action="index">Media</a></li>
+                                <li class="menuheader"><a asp-controller="Blogs" asp-action="index">Blog</a></li>
+                                <li class="menuheader"><a asp-controller="Career" asp-action="index">Careers</a></li>
+                                <li class="menuheader"><a asp-controller="Contact" asp-action="index">Contact</a></li>
+
+
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <!-- <div class="canvas__open"> <i class="fa fa-bars"></i></div>  -->
+            </div>
+        </header>
+    }
+    else
+    {
+        <header id="myHeader" class="header white__header">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="header__logo">
+                            <div class="black-logo" id="black-logo">
+                                <a asp-controller="Home" asp-action="index">
+                                    <img src="~/img/logo/last black.png" alt="logo-vivda">
+                                </a>
                             </div>
 
-                            <li class="menuheader"><a asp-controller="projects" asp-action="index">Projects</a></li>
-                            <li class="menuheader"><a asp-controller="About" asp-action="index">About</a></li>
-                            <li class="menuheader"><a asp-controller="Media" asp-action="index">Media</a></li>
-                            <li class="menuheader"><a asp-controller="Blogs" asp-action="index">Blog</a></li>
-                            <li class="menuheader"><a asp-controller="Career" asp-action="index">Careers</a></li>
-                            <li class="menuheader"><a asp-controller="Contact" asp-action="index">Contact</a></li>
+                            <div class="white-logo hide" id="white-logo">
+                                <a asp-controller="Home" asp-action="index">
+                                    <img src="~/img/logo/VIVID-white.png" alt="logo-vivda">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-9">
+                        <nav class="header__menu mobile-menu">
+                            <!-- Nav Toggler Btn -->
+                            <a asp-controller="Home" asp-action="bigfooter">
+                                <div class="nav-toggler closenavtglr hide" id="littlebtn">
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </a>
 
-                            
-                        </ul>
-                    </nav>
+                            <ul id="header-contant">
+                                <div class="menuheader projects menu__projects">
+                                    <button class="button-projects projects__button-projects">
+                                        <span class="button-projects__line"></span>
+                                        <span class="button-projects__line"></span>
+                                        <span class="button-projects__line"></span>
+                                    </button>
+                                    <div class="projects__dropdown">
+                                        <a asp-controller="projects" asp-action="index" class="projects__subitem">Commerical</a>
+                                        <a asp-controller="projects" asp-action="index" class="projects__subitem">residential</a>
+                                        <a asp-controller="projects" asp-action="index" class="projects__subitem">Architecture</a>
+                                    </div>
+                                </div>
+
+                                <li class="menuheader"><a asp-controller="projects" asp-action="index">Projects</a></li>
+                                <li class="menuheader"><a asp-controller="About" asp-action="index">About</a></li>
+                                <li class="menuheader"><a asp-controller="Media" asp-action="index">Media</a></li>
+                                <li class="menuheader"><a asp-controller="Blogs" asp-action="index">Blog</a></li>
+                                <li class="menuheader"><a asp-controller="Career" asp-action="index">Careers</a></li>
+                                <li class="menuheader"><a asp-controller="Contact" asp-action="index">Contact</a></li>
+
+
+                            </ul>
+                        </nav>
+                    </div>
                 </div>
+                <!-- <div class="canvas__open"> <i class="fa fa-bars"></i></div>  -->
             </div>
-            <!-- <div class="canvas__open"> <i class="fa fa-bars"></i></div>  -->
-        </div>
-    </header>
+        </header>
+    }
+
     <!-- Header Section End -->
     <div>
         @RenderBody()
@@ -128,7 +204,7 @@
     <!-- Footer Section Begin -->
     <footer class="footer set-bg" id="footer-sec" data-setbg="/img/footer-bg.jpg" data-color-sec="dark">
         <div class="container">
-            
+
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-6" data-aos="fade-up" data-aos-delay="500">
                     <div class="footer__about">
@@ -153,10 +229,10 @@
                         <h6>Company</h6>
                         <ul>
                             <li><a asp-controller="About" asp-action="index">About Us</a></li>
-                            
+
                             <li><a asp-controller="Projects" asp-action="index">Our Works</a></li>
                             <li><a asp-controller="Career" asp-action="index">Career</a></li>
-                            
+
                         </ul>
                     </div>
                 </div>
@@ -181,7 +257,7 @@
                                 <script>
                                     document.write(new Date().getFullYear());</script>
                                 All rights reserved <i class="fa fa-heart-o"
-                                                                                    aria-hidden="true"></i> by <a href="#" target="_blank">Devenza</a>
+                                                       aria-hidden="true"></i> by <a href="#" target="_blank">Devenza</a>
                             </p>
                         </div>
                     </div>
@@ -223,7 +299,7 @@
                                 <li class="w3-animate-bottom"><a asp-controller="Contact" asp-action="index">Contact</a></li>
                                 <!-- <li class="w3-animate-bottom"><a href="#"><i class="fa fa-search"></i></a></li> -->
 
-                                
+
                             </ul>
 
 

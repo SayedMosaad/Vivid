@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>c77100f8-a671-4a8d-ae37-a875cecf49cb</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,6 +12,7 @@
     <Folder Include="wwwroot\images\awards\" />
     <Folder Include="wwwroot\images\media\" />
     <Folder Include="wwwroot\images\blogs\" />
+    <Folder Include="wwwroot\images\categories\" />
     <Folder Include="wwwroot\images\team\" />
     <Folder Include="wwwroot\images\project\" />
     <Folder Include="wwwroot\images\profile\" />

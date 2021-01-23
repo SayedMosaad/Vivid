@@ -16,6 +16,7 @@
                     <th>
                         @Html.DisplayNameFor(model => model.Name)
                     </th>
+                    <th>@Html.DisplayNameFor(m=>m.Image)</th>
                     <th></th>
                 </tr>
             </thead>
@@ -31,9 +32,12 @@
                                 <h5>@subitem.Name</h5>
                             }*@
                         </td>
+                        <td>
+                            <img src="~/images/categories/@item.Image" style="width:150px; height:150px;" />
+                        </td>
 
                         <td>
-                            <a asp-area="Admin" asp-controller="Categories" asp-action="Edit" asp-route-id="@item.ID" class="fas fa-edit text-primary"></a>
+                            <a asp-area="Admin" asp-controller="Categories" asp-action="Edit" asp-route-id="@item.ID" asp-route-ImageUrl="@item.Image" class="fas fa-edit text-primary"></a>
                             <a asp-area="Admin" asp-controller="Categories" asp-action="Delete" asp-route-id="@item.ID" class="fas fa-trash text-danger"></a>
                         </td>
                     </tr>

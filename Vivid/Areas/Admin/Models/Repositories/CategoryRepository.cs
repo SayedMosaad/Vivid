@@ -42,6 +42,7 @@ namespace Vivid.Areas.Admin.Models.Repositories
         {
             var category = Find(id);
             category.Name = entity.Name;
+            category.Image = entity.Image;
             db.SaveChanges();
         }
     }

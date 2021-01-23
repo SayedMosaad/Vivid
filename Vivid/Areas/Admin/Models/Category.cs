@@ -9,6 +9,7 @@ namespace Vivid.Areas.Admin.Models
     {
         public int ID { get; set; }
         public string Name { get; set; }
+        public string Image { get; set; }
         public ICollection<Project> Projects { get; set; }
     }
 }
